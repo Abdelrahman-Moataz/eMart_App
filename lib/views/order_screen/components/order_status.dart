@@ -1,8 +1,11 @@
 import 'package:emart/consts/consts.dart';
 
-Widget orderStatus({icon,color,title,showDone}){
+Widget orderStatus({icon, color, title, showDone}) {
   return ListTile(
-    leading:  Icon(icon, color: color,).box.border(color: redColor).make(),
+    leading: Icon(
+      icon,
+      color: color,
+    ).box.border(color: redColor).make(),
     trailing: SizedBox(
       height: 100,
       width: 120,
@@ -10,8 +13,17 @@ Widget orderStatus({icon,color,title,showDone}){
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           "$title".text.color(darkFontGrey).make(),
-           showDone ?  Icon(Icons.done, color: color,).box.border(color: color).roundedSM.padding(const EdgeInsets.all(4)).make() : Container(),
-
+          showDone
+              ? Icon(
+                  Icons.done,
+                  color: color,
+                )
+                  .box
+                  .border(color: color)
+                  .roundedSM
+                  .padding(const EdgeInsets.all(4))
+                  .make()
+              : Container(),
         ],
       ),
     ),

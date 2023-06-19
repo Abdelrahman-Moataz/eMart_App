@@ -1,69 +1,79 @@
 import 'package:emart/consts/consts.dart';
 import 'package:emart/views/order_screen/components/order_place_details.dart';
-import 'package:emart/views/order_screen/components/order_status.dart';
 import 'package:intl/intl.dart' as intl;
 
-
+import 'components/order_status.dart';
 
 class OrdersDetails extends StatelessWidget {
-
-
-
   final dynamic data;
 
   const OrdersDetails({Key? key, this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: AppBar(
-        title: "Order Details".text.fontFamily(semibold).color(darkFontGrey).make(),
+        title: "Order Details"
+            .text
+            .fontFamily(semibold)
+            .color(darkFontGrey)
+            .make(),
       ),
-
-
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
-
             children: [
-              orderStatus(color: redColor, icon: Icons.done, title: "placed",showDone: data['order_placed']),
-              orderStatus(color: Colors.blue, icon: Icons.thumb_up, title: "Confirmed",showDone: data['order_confirmed']),
-              orderStatus(color: Colors.yellow, icon: Icons.car_crash, title: "On delivery",showDone: data['order_on_delivery']),
-              orderStatus(color: Colors.purple, icon: Icons.done_all_rounded, title: "Delivered",showDone: data['order_delivered']),
-
+              orderStatus(
+                color: redColor,
+                icon: Icons.done,
+                title: "placed",
+                showDone: data['order_placed'],
+              ),
+              orderStatus(
+                color: Colors.blue,
+                icon: Icons.thumb_up,
+                title: "Confirmed",
+                showDone: data['order_confirmed'],
+              ),
+              orderStatus(
+                color: Colors.yellow,
+                icon: Icons.car_crash,
+                title: "On delivery",
+                showDone: data['order_on_delivery'],
+              ),
+              orderStatus(
+                color: Colors.purple,
+                icon: Icons.done_all_rounded,
+                title: "Delivered",
+                showDone: data['order_delivered'],
+              ),
               const Divider(),
-               10.heightBox,
-
+              10.heightBox,
               Column(
                 children: [
                   orderPlaceDetails(
                       d1: data['order_code'],
                       d2: data['shipping_method'],
                       title1: "Order Code",
-                      title2: "Shipping method"
-                  ),
-
+                      title2: "Shipping method"),
                   orderPlaceDetails(
-                      d1: intl.DateFormat().add_yMd().format((data['order_date'].toDate())),
+                      d1: intl.DateFormat()
+                          .add_yMd()
+                          .format((data['order_date'].toDate())),
                       d2: data['shipping_method'],
                       title1: "Order Date",
-                      title2: "Payment method"
-                  ),
-
+                      title2: "Payment method"),
                   orderPlaceDetails(
                       d1: "Unpaid",
                       d2: 'order placed',
                       title1: "Payment Status",
-                      title2: "Delivery Status"
-                  ),
-
+                      title2: "Delivery Status"),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 8),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -79,7 +89,8 @@ class OrdersDetails extends StatelessWidget {
                             "${data['order_by_phone']}".text.make(),
                             "${data['order_by_phone']}".text.make(),
                             "${data['order_by_postalCode']}".text.make(),
-                          ],),
+                          ],
+                        ),
                         SizedBox(
                           width: 130,
                           child: Column(
@@ -87,7 +98,11 @@ class OrdersDetails extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               "Total Amount".text.fontFamily(semibold).make(),
-                              "${data['total_amount']}".text.color(redColor).fontFamily(bold).make(),
+                              "${data['total_amount']}"
+                                  .text
+                                  .color(redColor)
+                                  .fontFamily(bold)
+                                  .make(),
                             ],
                           ),
                         ),
@@ -96,15 +111,15 @@ class OrdersDetails extends StatelessWidget {
                   )
                 ],
               ).box.outerShadowSm.white.make(),
-
               const Divider(),
-
               10.heightBox,
-
-              "Order Product".text.size(16).color(darkFontGrey).fontFamily(semibold).makeCentered(),
-
+              "Order Product"
+                  .text
+                  .size(16)
+                  .color(darkFontGrey)
+                  .fontFamily(semibold)
+                  .makeCentered(),
               10.heightBox,
-
               ListView(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
@@ -113,40 +128,33 @@ class OrdersDetails extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       orderPlaceDetails(
-                        title1: data['orders'][index]['title'],
-                        title2: data['orders'][index]['tPrice'],
-                        d1: "${data['orders'][index]['qty']}x",
-                        d2: "Refundable"
-                      ),
+                          title1: data['orders'][index]['title'],
+                          title2: data['orders'][index]['tPrice'],
+                          d1: "${data['orders'][index]['qty']}x",
+                          d2: "Refundable"),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Container(
-                          width: 30, height: 20,
+                          width: 30,
+                          height: 20,
                           color: Color(data['orders'][index]['color']),
                         ),
                       ),
                       const Divider(),
-
-
-
-
                     ],
                   );
                 }).toList(),
-
-              ).box.outerShadowMd.white.margin(const EdgeInsets.only(bottom: 4)).make(),
+              )
+                  .box
+                  .outerShadowMd
+                  .white
+                  .margin(const EdgeInsets.only(bottom: 4))
+                  .make(),
               20.heightBox,
-
-
-
-
-
-
             ],
           ),
         ),
       ),
-
     );
   }
 }

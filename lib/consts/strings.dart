@@ -41,15 +41,14 @@ const searchAnyThing = "Search anything...",
 //categories screen
 
 const categories = "Categories",
-    womenClothing = "Women Clothing",
-    comAccess = "Computer & Accessories",
-    menClothingFashion = "Men Clothing & Fashion",
-    autoMobile = "AutoMobile",
-    kidsToys = "Kids Toys",
-    sports = "Sports",
-    jewelery = "Jewelery",
-    cellphone = "CellPhone",
-    furniture= "Furniture";
+    superMarket = "Super Market",
+    pharmacy = "Pharmacy",
+    restaurants = "Restaurants",
+    stationery = "Stationery",
+    bakerySweets = "bakery & sweets",
+    ride = "Ride",
+    trainTickets = "Train Tickets";
+
 
 //item details strings
 

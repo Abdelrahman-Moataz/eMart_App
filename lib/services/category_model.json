@@ -1,74 +1,66 @@
 {
   "categories": [
     {
-      "name": "Women Dress",
+      "name": "Super Market",
       "subcategory": [
-        "Wedding & Event",
-        "Tops & Sets",
-        "Watches"
+        "grocery",
+        "fruits",
+        "Drinks"
       ]
     },
     {
-      "name": "Men Clothing & Fashion",
+      "name": "Pharmacy",
       "subcategory": [
-        "Outwear & Jackets",
-        "formal Dress",
-        "Accessories"
+        "community pharmacy",
+        "hospital pharmacy",
+        "clinical pharmacy",
+        "regulatory pharmacy",
+        "industrial pharmacy"
       ]
     },
     {
-      "name": "Computer & Accessories",
+      "name": "Restaurants",
       "subcategory": [
-        "Laptop",
-        "Gaming PC",
-        "Official Equipment"
+        "Fast Food",
+        "Cafe",
+        "Diner",
+        "Grill",
+        "Food Truck"
       ]
     },
     {
-      "name": "AutoMobile",
+      "name": "Stationery",
       "subcategory": [
-        "cars",
-        "Bikes"
+        "Sticky Notes",
+        "Full Color Notes",
+        "Calendars",
+        "pens"
       ]
     },
     {
-      "name": "Kids Toys",
+      "name": "bakery & sweets",
       "subcategory": [
-        "shoes & Bags",
-        "Baby clothing",
-        "Girls Toys"
+        "Cakes",
+        "Bread",
+        "Muffins",
+        "Cookies",
+        "Croissants"
       ]
     },
     {
-      "name": "Sports",
+      "name": "Ride",
       "subcategory": [
-        "Cycling",
-        "Sneakers",
-        "Swimming"
+        "Car",
+        "motorcycle"
+
       ]
     },
     {
-      "name": "Jewelery",
+      "name": "Train Tickets",
       "subcategory": [
-        "Necklace",
-        "Gold",
-        "Earing"
-      ]
-    },
-    {
-      "name": "CellPhone",
-      "subcategory": [
-        "Smartphone",
-        "Tablets",
-        "Accessories"
-      ]
-    },
-    {
-      "name": "Furniture",
-      "subcategory": [
-        "Sofa",
-        "Bed",
-        "Home Textile"
+        "EC",
+        "1AC",
+        "CC"
       ]
     }
   ]
