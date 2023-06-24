@@ -1,8 +1,7 @@
 import 'package:emart/consts/consts.dart';
 import 'package:emart/services/firestore_services.dart';
+import 'package:emart/views/order_screen/orders_details.dart';
 import 'package:emart/widgets_common/loading_indecator.dart';
-
-import 'dummy.dart';
 
 class OrdersScreen extends StatelessWidget {
   const OrdersScreen({Key? key}) : super(key: key);
@@ -28,7 +27,7 @@ class OrdersScreen extends StatelessWidget {
 
             return ListView.builder(
                 itemCount: data.length,
-                itemBuilder: (BuildContext context, int index) {
+                itemBuilder: (BuildContext context, index) {
                   return ListTile(
                     leading: "${index + 1}"
                         .text
@@ -51,7 +50,9 @@ class OrdersScreen extends StatelessWidget {
                     trailing: IconButton(
                         onPressed: () {
                           Get.to(
-                            () => const Dummy(),
+                            () => OrdersDetails(
+                              data: data[index],
+                            ),
                           );
                         },
                         icon: const Icon(

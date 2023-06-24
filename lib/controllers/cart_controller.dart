@@ -1,7 +1,7 @@
 import 'package:emart/consts/consts.dart';
 import 'package:emart/controllers/home_controller.dart';
 
-class CartController extends GetxController{
+class CartController extends GetxController {
   var totalP = 0.obs;
 
   // text controller for shipping details
@@ -12,30 +12,26 @@ class CartController extends GetxController{
   var postalCodeController = TextEditingController();
   var phoneController = TextEditingController();
 
-
   var paymentIndex = 0.obs;
 
   late dynamic productSnapshot;
   var products = [];
+  var vendors = [];
 
   var placingOrder = false.obs;
 
-
-  calculate(data){
+  calculate(data) {
     totalP.value = 0;
-    for (var i =0; i < data.length; i++){
+    for (var i = 0; i < data.length; i++) {
       totalP.value = totalP.value + int.parse(data[i]['tPrice'].toString());
     }
   }
 
-
-  changePaymentIndex (index) {
+  changePaymentIndex(index) {
     paymentIndex.value = index;
   }
 
-
-  placeMyOrder({required orderPaymentMethod, required totalAmount})async{
-
+  placeMyOrder({required orderPaymentMethod, required totalAmount}) async {
     placingOrder(true);
     await getProductDetails();
 
@@ -51,20 +47,22 @@ class CartController extends GetxController{
       'order_by_phone': phoneController.text,
       'order_by_postalCode': postalCodeController.text,
       'shipping_method': "Home Delivery",
-      'payment_method':orderPaymentMethod,
+      'payment_method': orderPaymentMethod,
       'order_placed': true,
       'order_confirmed': false,
       'order_delivered': false,
       'order_on_delivery': false,
       'total_amount': totalAmount,
-      'orders': FieldValue.arrayUnion(products)
+      'orders': FieldValue.arrayUnion(products),
+      'vendors': FieldValue.arrayUnion(vendors)
     });
     placingOrder(false);
   }
 
-  getProductDetails(){
+  getProductDetails() {
     products.clear();
-    for(var i =0; i < productSnapshot.length; i++){
+    vendors.clear();
+    for (var i = 0; i < productSnapshot.length; i++) {
       products.add({
         'color': productSnapshot[i]['color'],
         'img': productSnapshot[i]['img'],
@@ -73,17 +71,13 @@ class CartController extends GetxController{
         'qty': productSnapshot[i]['qty'],
         'title': productSnapshot[i]['title'],
       });
+      vendors.add(productSnapshot[i]['vendor_id']);
     }
   }
 
-
-  clearCart(){
-    for(var i = 0; i < productSnapshot.length; i++){
+  clearCart() {
+    for (var i = 0; i < productSnapshot.length; i++) {
       fireStore.collection(cartCollection).doc(productSnapshot[i].id).delete();
     }
   }
-
-
-
-
 }

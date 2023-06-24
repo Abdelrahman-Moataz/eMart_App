@@ -123,7 +123,7 @@ class OrdersDetails extends StatelessWidget {
               ListView(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                children: List.generate(data['orders'].lenght, (index) {
+                children: List.generate(data['orders'], (index) {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
